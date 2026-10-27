@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#171126">
+<title>Happy Birthday!</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-family: Georgia, serif;
+  color: #fff8e8;
+  text-align: center;
+  background: radial-gradient(
+    circle at top, #67466d, #211a36 55%, #100d1c
+  );
+  overflow-x: hidden;
+}
+
+.card {
+  width: 100%;
+  max-width: 580px;
+  padding: 35px 22px;
+  border: 1px solid #f6d88b;
+  border-radius: 25px;
+  background: #ffffff12;
+  box-shadow: 0 15px 60px #0005;
+  position: relative;
+  z-index: 2;
+  animation: appear 1s ease;
+}
+
+.small-title {
+  color: #f6d88b;
+  letter-spacing: 3px;
+  font: 12px Arial, sans-serif;
+}
+
+h1 {
+  color: #f6d88b;
+  font-size: clamp(35px, 9vw, 62px);
+  font-weight: normal;
+  margin: 20px 0;
+  text-shadow: 0 0 20px #f6d88b66;
+}
+
+.name {
+  font-size: clamp(24px, 6vw, 36px);
+  margin: 15px 0;
+}
+
+.cake {
+  font-size: 85px;
+  margin: 20px 0;
+  animation: bounce 2s infinite;
+}
+
+.message {
+  line-height: 1.9;
+  font-size: 17px;
+  margin-bottom: 25px;
+}
+
+input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+button, .button {
+  display: inline-block;
+  padding: 15px 22px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #ffe8a3, #d6a64e);
+  color: #281b2c;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.note {
+  display: none;
+  padding: 20px;
+  margin-top: 25px;
+  line-height: 1.9;
+  border: 1px solid #f6d88b88;
+  border-radius: 15px;
+  background: #100d1c99;
+}
+
+#show:checked ~ .note {
+  display: block;
+  animation: appear .7s ease;
+}
+
+.open-label, .close-label {
+  cursor: pointer;
+}
+
+.close-label { display: none; }
+
+#show:checked ~ .button-area .open-label {
+  display: none;
+}
+
+#show:checked ~ .button-area .close-label {
+  display: inline;
+}
+
+.signature {
+  margin-top: 25px;
+  color: #f7a9c4;
+}
+
+.balloon {
+  position: fixed;
+  bottom: -100px;
+  font-size: 35px;
+  animation: float 12s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.b1 { left: 5%; animation-delay: 0s; }
+.b2 { left: 82%; animation-delay: 3s; }
+.b3 { left: 25%; animation-delay: 6s; }
+.b4 { left: 65%; animation-delay: 8s; }
+
+.confetti {
+  position: fixed;
+  top: -20px;
+  width: 7px;
+  height: 12px;
+  background: #f6d88b;
+  animation: fall 6s linear infinite;
+  pointer-events: none;
+}
+
+.c1 { left: 10%; animation-delay: 1s; }
+.c2 { left: 30%; animation-delay: 3s; background: pink; }
+.c3 { left: 50%; animation-delay: 0s; }
+.c4 { left: 70%; animation-delay: 2s; background: #c8a7e8; }
+.c5 { left: 90%; animation-delay: 4s; background: pink; }
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes float {
+  from { transform: translateY(0) rotate(0); }
+  to { transform: translateY(-120vh) rotate(20deg); }
+}
+
+@keyframes fall {
+  to { transform: translateY(110vh) rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="balloon b1">🎈</div>
+<div class="balloon b2">🎈</div>
+<div class="balloon b3">🎈</div>
+<div class="balloon b4">🎈</div>
+
+<div class="confetti c1"></div>
+<div class="confetti c2"></div>
+<div class="confetti c3"></div>
+<div class="confetti c4"></div>
+<div class="confetti c5"></div>
+
+<main class="card">
+
+  <div class="small-title">A DAY WORTH CELEBRATING</div>
+
+  <h1>Happy Birthday!</h1>
+
+  <!-- Change the name here -->
+  <div class="name">Dear Friend ❤️</div>
+
+  <div class="cake">🎂</div>
+
+  <p class="message">
+    May your special day be filled with laughter, love,
+    good health, and beautiful moments. May the year ahead
+    bring you new adventures, peace of mind, and countless
+    reasons to smile.
+  </p>
+
+  <input type="checkbox" id="show">
+
+  <div class="button-area">
+    <label for="show" class="button">
+      <span class="open-label">
+        Open your special message ✨
+      </span>
+      <span class="close-label">
+        Hide message ✨
+      </span>
+    </label>
+  </div>
+
+  <div class="note">
+    <strong>Here's to you! 🥂</strong>
+    <br><br>
+    Age is a beautiful collection of stories, strength,
+    wisdom, and wonderful memories. Keep shining,
+    keep laughing, and never stop enjoying life.
+    You deserve all the happiness in the world!
+    <br><br>
+    May every new year of your life be even more
+    wonderful than the last. ❤️
+  </div>
+
+  <!-- Change the sender's name here -->
+  <div class="signature">
+    With warm wishes ❤️
+  </div>
+
+</main>
+
+</body>
+</html>
